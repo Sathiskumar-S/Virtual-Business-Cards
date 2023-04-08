@@ -8,7 +8,7 @@ class User{
 
         $conn = Database::getConnection();
 
-        $query = "INSERT INTO `users` (`firstname`, `lastname`, `username`, `email`, `password`) VALUES ('$firstname', '$lastname', '$username', '$email', '$password')";
+        $query = "INSERT INTO `users` (`firstname`, `lastname`, `username`, `email`, `password`) VALUES ('$firstname', '$lastname', '$username', '$email', '$pass')";
 
         $error = false;
 

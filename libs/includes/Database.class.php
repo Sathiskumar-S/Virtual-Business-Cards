@@ -12,7 +12,7 @@ class Database{
 
             //Create Connection
             $conn = new mysqli($servername,$username,$password,$database);
-            echo "Database is connected successfully";
+            // echo "Database is connected successfully";
 
             //Check Connection Status
             if($conn->connect_error){

@@ -42,10 +42,13 @@
           $password = $_POST['password'];
 
           User::signup($firstname,$lastname,$username,$email,$password);
-        }
 
-      ?>
-      <form action="login.php" method="post">
+          ?>
+          <div class="alert alert-success" role="alert">
+            Your data stored successfully. <a href="login.php">login</a>
+          </div>
+        <?php } ?>
+      <form action="" method="post">
         <img class="mb-4" src="../images/appicon.jpg" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Virtual Business Cards</h1>
 
