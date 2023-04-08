@@ -9,7 +9,6 @@
     <meta name="generator" content="Hugo 0.84.0">
     <title>Signup - Virtual Business Cards</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/signup.css?<?php echo time();?>">
@@ -31,18 +30,27 @@
       }
     </style>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
     <main class="form-signin">
-      <form>
+      <?php
+        if(isset($_POST['signup'])){
+          $firstname = $_POST['firstname'];
+          $lastname = $_POST['lastname'];
+          $username = $_POST['username'];
+          $email = $_POST['email'];
+          $password = $_POST['password'];
+
+          User::signup($firstname,$lastname,$username,$email,$password);
+        }
+
+      ?>
+      <form action="login.php" method="post">
         <img class="mb-4" src="../images/appicon.jpg" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Virtual Business Cards</h1>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="firstname" name="firstname">
+          <input type="text" class="form-control firstname" id="floatingInput" placeholder="firstname" name="firstname">
           <label for="floatingInput">First Name</label>
         </div>
         <div class="form-floating">
@@ -67,7 +75,7 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" name="signup">Sign up</button>
       </form><br>
       <p>Already have login and password?<a href="login.php"> sign in</a></p>
     </main>

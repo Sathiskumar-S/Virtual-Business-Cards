@@ -1,3 +1,7 @@
+<?php include "includes/Database.class.php";?>
+<?php include "includes/User.class.php";?>
+
+
 <?php
 
 class LoadTemplate{
