@@ -36,17 +36,32 @@
     <link href="signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
+    <?php 
+      if(isset($_POST['signin'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $result = User::login($username,$password);
+
+        if($result){
+          header("Location: ../main/");
+        }
+
+
+      }
+
+    ?>
     <main class="form-signin">
-      <form>
+      <form method="post">
         <img class="mb-4" src="../images/appicon.jpg" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Virtual Business Cards</h1>
 
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="username">
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
           <label for="floatingPassword">Password</label>
         </div>
 
@@ -55,7 +70,7 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" name="signin">Sign in</button>
       </form><br>
       <p>Don't have an account yet? <a href="signup.php">Register now</a></p>
     </main>

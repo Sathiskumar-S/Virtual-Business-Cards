@@ -1,3 +1,4 @@
+<?php ob_start();?>
 <?php include "includes/Database.class.php";?>
 <?php include "includes/User.class.php";?>
 
